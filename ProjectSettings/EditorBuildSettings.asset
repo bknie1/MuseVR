@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Load.unity
+    path: Assets/Scenes/StartScene.unity
     guid: 7a2c94ee2f286fc48add976803dae799
   - enabled: 1
-    path: Assets/Scenes/RingScene.unity
+    path: Assets/Scenes/FSScene.unity
+    guid: 86e186dccc9b09f4d9acecb246d43ea1
+  - enabled: 1
+    path: Assets/Scenes/NCSScene.unity
+    guid: 1db5e03a4f2430e43a27d46cbd06a241
+  - enabled: 1
+    path: Assets/Scenes/OptionsScene.unity
+    guid: 8778a0d8db6a1704c8f5b4e20a88f8f4
+  - enabled: 1
+    path: Assets/Scenes/ColorScene.unity
+    guid: d39cdd2092053e04192c274287670034
+  - enabled: 1
+    path: Assets/Scenes/ChooseVisScene.unity
+    guid: c7915af81b6838a47b72b4a3de360d03
+  - enabled: 1
+    path: Assets/Scenes/VisualizerScene.unity
     guid: a80d88aff2b86e549b940c55da799857

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e6e40f79fbf9ea245a869cd5ff788d2d
+timeCreated: 1517941742
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - cetus: {fileID: 8300000, guid: 2f5ad897353657f44bd0cb4ec9ecdb65, type: 3}
+  - circles: {fileID: 8300000, guid: deb47834e38140747a4211a80bdba592, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
