@@ -11,38 +11,46 @@ public class OptionsScript : MonoBehaviour {
 	private string color;
 	public GameObject prefab;
 
-	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		DontDestroyOnLoad (this.gameObject);
 		color = "Red";
 	}
 
-	public string getColor(){
+	public string getColor()
+	{
 		return color;
 	}
 
-	public void setColor(string c){
+	public void setColor(string c)
+	{
 		color = c;
 	}
 
-	public GameObject getPrefab (){
+	public GameObject getPrefab ()
+	{
 		return prefab;
 	}
 
-	public void setPrefab(GameObject p){
+	public void setPrefab(GameObject p)
+	{
 		prefab = p;
 	}
 
-	public void colorScene(){
+	public void colorScene()
+	{
 		SceneManager.LoadScene ("ColorScene");
 	}
 
-	public void visScene(){
+	public void visScene()
+	{
 		SceneManager.LoadScene ("ChooseVisScene");
 	}
 
-	public void Randomize(){
-		switch (Random.Range (0, 12)) {
+	public void Randomize()
+	{
+		switch (Random.Range (0, 12)) 
+		{
 			case 0:	{color = "White"; break;}
 			case 1:	{color = "Red"; break;}
 			case 2:	{color = "Green"; break;}
@@ -59,11 +67,14 @@ public class OptionsScript : MonoBehaviour {
 		}
 	}
 
-	public void Back(){
+	public void Back()
+	{
+		// Reset music to null if chosen by FS
 		SceneManager.LoadScene ("StartScene");
 	}
 
-	public void Continue(){
+	public void Continue()
+	{
 		SceneManager.LoadScene ("VisualizerScene");
 	}
 }

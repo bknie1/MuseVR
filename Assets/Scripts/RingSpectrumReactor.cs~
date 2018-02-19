@@ -20,7 +20,8 @@ public class RingSpectrumReactor : MonoBehaviour {
 	private int samples = 1024; // Number of samples to utilize (1024)
 	private AudioClip aC;
 
-	void Start () {
+	void Start () 
+	{
 		OptionsManager = GameObject.Find ("OptionsManager");
 		prefab = OptionsManager.GetComponent<OptionsScript> ().getPrefab ();
 		instantiatePrefabs ();
@@ -28,21 +29,26 @@ public class RingSpectrumReactor : MonoBehaviour {
 	}
 
 	// Instantiates the ring of prefabs (cubes) according to the count.
-	void instantiatePrefabs(){
-		for (int i = 0; i < prefabCount; i++) {
-			float angle = i * Mathf.PI * 2 / prefabCount;
-			Vector3 pos = new Vector3 (Mathf.Cos (angle), height, Mathf.Sin (angle)) * radius;
+	void instantiatePrefabs()
+	{
+		for (var i = 0; i < prefabCount; i++)
+		{
+			var angle = i * Mathf.PI * 2 / prefabCount;
+			var pos = new Vector3 (Mathf.Cos (angle), height, Mathf.Sin (angle)) * radius;
 			Instantiate (prefab, pos, Quaternion.identity);
 		}
 		prefabList = GameObject.FindGameObjectsWithTag ("Visualize");
 	}
 
 	// Recieves audio file from the event manager, loads it, and plays it.
-	void confAudioS(){
+	void confAudioS()
+	{
 		aS = this.gameObject.GetComponent<AudioSource> ();
-		if (GameObject.Find ("FSManager")) {
+		if (GameObject.Find ("FSManager")) 
+		{
 			aC = GameObject.Find ("FSManager").GetComponent<FSScript> ().getClip ();
-		} else {
+		} else
+		{
 			aC = GameObject.Find ("NCSManager").GetComponent<NCSScript> ().getClip ();
 		}
 		aS.clip = aC;
@@ -50,22 +56,26 @@ public class RingSpectrumReactor : MonoBehaviour {
 		Invoke ("Play", 5f);
 	}
 
-	void Play(){
+	void Play()
+	{
 		aS.Play ();
 		Invoke ("Reset", aS.clip.length);
 	}
 
-	void Update () { // Delay this
+	void Update () 
+	{
 		float[] spectrum = new float[samples]; // Test this further.
 		AudioListener.GetSpectrumData (spectrum, 0, FFTWindow.Rectangular); // This increases or decreases the sensitivity of the bars, at the cost of some performance. Some may prefer the lower settings. Essentially distributes movement to more blocks and reduces average height.
-		for (int i = 0; i < prefabCount; i++) {
-			Vector3 prefabScale = prefabList [i].transform.localScale;
+		for (var i = 0; i < prefabCount; i++) 
+		{
+			var prefabScale = prefabList [i].transform.localScale;
 			prefabScale.y = Mathf.Lerp (prefabScale.y, spectrum [i] * lerpMod, Time.deltaTime * timeMod);
 			prefabList[i].transform.localScale = prefabScale;
 		}
 	}
 
-	void Reset(){
+	void Reset()
+	{
 		Destroy (GameObject.Find ("FSManager"));
 		Destroy (GameObject.Find ("NCSManager"));
 		SceneManager.LoadScene ("StartScene");

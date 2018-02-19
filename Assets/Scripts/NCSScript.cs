@@ -12,25 +12,31 @@ public class NCSScript : MonoBehaviour {
 	public AudioClip cetus;
 	public AudioClip circles;
 
-	void Start () {
+	void Start () 
+	{
 		DontDestroyOnLoad (this.gameObject);
 	}
 	
-	public AudioClip getClip(){
+	public AudioClip getClip()
+	{
 		return music;
 	}
 
-	public void SelectCetus(){
+	public void SelectCetus()
+	{
 		music = cetus;
 		SceneManager.LoadScene ("OptionsScene");
 	}
 
-	public void SelectCircles(){
+	public void SelectCircles()
+	{
 		music = circles;
 		SceneManager.LoadScene ("OptionsScene");
 	}
 
-	public void Back(){
+	public void Back()
+	{
+		music = null;
 		SceneManager.LoadScene ("StartScene");
 	}
 }

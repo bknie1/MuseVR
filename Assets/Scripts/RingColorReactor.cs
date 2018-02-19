@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RingColorReactor : MonoBehaviour {
 
+	// TODO: Lights are not reacting on all instances of the object, and are still too flashy
+
 	private static GameObject OptionsManager;
 	private static float prevSpecCol = 0; // Initialized for Lerp
 	private static float reduction = 2f; // Decrease to increase glow brightness (1-10, 2 default)
@@ -19,11 +21,13 @@ public class RingColorReactor : MonoBehaviour {
 	private float blue = 0f;
 	private float alpha = 1f; // (1)
 
-	void Start () {
+	void Start () 
+	{
 		OptionsManager = GameObject.Find ("OptionsManager");
 	}
 
-	void Update () {
+	void Update () 
+	{
 		specCol = Mathf.Lerp(prevSpecCol, this.gameObject.transform.lossyScale.y / reduction, Time.deltaTime * changespeed); // This needs SIGNIFICANT fine tuning.
 		prevSpecCol = specCol;
 		colorPicker ();
@@ -35,8 +39,10 @@ public class RingColorReactor : MonoBehaviour {
 		this.gameObject.GetComponent<Light> ().intensity = specCol * lightmult;
 	}
 
-	void colorPicker(){ // There has to be a more efficient way to do this.
-		switch (OptionsManager.GetComponent<OptionsScript>().getColor()) {
+	void colorPicker()
+	{ // There has to be a more efficient way to do this.
+		switch (OptionsManager.GetComponent<OptionsScript>().getColor())
+		{
 		case "White":{
 				green = specCol * rgbmod;
 				red = specCol * rgbmod;

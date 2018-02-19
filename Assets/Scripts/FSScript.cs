@@ -9,9 +9,11 @@ public class FSScript : MonoBehaviour {
 	private AudioClip music;
 
 	// Asks the user for an mp3 (wav will also work but isn't shown), NAudio.dll turns it into a wav, and holds it for the visualizer.
-	IEnumerator Start () {
+	IEnumerator Start () 
+	{
 		DontDestroyOnLoad (this.gameObject);
 
+		music = null;
 		string path = EditorUtility.OpenFilePanel ("Music File To Open", "", "mp3");
 		string url = "file:///" + path;
 		using (WWW www = new WWW(url)){
@@ -33,7 +35,8 @@ public class FSScript : MonoBehaviour {
 		}
 	}
 	
-	public AudioClip getClip(){
+	public AudioClip getClip()
+	{
 		return music;
 	}
 }

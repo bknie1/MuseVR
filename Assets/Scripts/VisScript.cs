@@ -12,31 +12,37 @@ public class VisScript : MonoBehaviour {
 	private static GameObject OptionsManager;
 	private static GameObject VisText;
 
-	void Start () {
+	void Start () 
+	{
 		OptionsManager = GameObject.Find ("OptionsManager");
 		VisText = GameObject.Find ("VisText");
 	}
 
-	public void setCube(){
+	public void setCube()
+	{
 		OptionsManager.GetComponent<OptionsScript> ().setPrefab (Cube);
 		VisText.GetComponent<UnityEngine.UI.Text> ().text = "Cube";
 	}
 
-	public void setCylinder(){
+	public void setCylinder()
+	{
 		OptionsManager.GetComponent<OptionsScript> ().setPrefab (Cylinder);
 		VisText.GetComponent<UnityEngine.UI.Text> ().text = "Cylinder";
 	}
 
-	public void setSphere(){
+	public void setSphere()
+	{
 		OptionsManager.GetComponent<OptionsScript> ().setPrefab (Sphere);
 		VisText.GetComponent<UnityEngine.UI.Text> ().text = "Arc";
 	}
-	public void setCapsule(){
+	public void setCapsule()
+	{
 		OptionsManager.GetComponent<OptionsScript> ().setPrefab (Capsule);
 		VisText.GetComponent<UnityEngine.UI.Text> ().text = "Capsule";
 	}
 
-	public void Back(){
+	public void Back()
+	{
 		SceneManager.LoadScene ("OptionsScene");
 	}
 }
