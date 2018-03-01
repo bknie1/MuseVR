@@ -7,15 +7,15 @@ public class StartScript : MonoBehaviour {
 
 	// Initial menu
 
-	public void ChooseFromFS(){
+	public void ChooseFromFS() {
 		SceneManager.LoadScene ("FSScene");
 	}
 
-	public void ChooseNCSMusic(){
+	public void ChooseNCSMusic() {
 		SceneManager.LoadScene ("NCSScene");
 	}
 
-	public void Quit(){
+	public void Quit() {
 		Application.Quit ();
 	}
 }
